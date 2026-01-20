@@ -1,0 +1,15 @@
+{
+  "name": "mysticarena",
+  "version": "1.0.0",
+  "scripts": {
+    "sass": "sass sass/main.scss css/main.css --watch"
+  },
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "sass": "^1.97.2"
+  }
+}
