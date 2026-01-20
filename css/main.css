@@ -1,0 +1,12 @@
+body {
+  background-color: #000000;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/*# sourceMappingURL=main.css.map */

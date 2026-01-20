@@ -1,0 +1,14 @@
+$background-color: #000000;
+
+
+
+body {
+  background-color: $background-color;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
