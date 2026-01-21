@@ -1,12 +1,46 @@
 @use 'variables';
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: variables.$font-stack;
+  font-size: 16px;
+}
+
 body {
   background-color: variables.$bg-color;
 }
 
-.logo-container {
+.header-container {
   display: flex;
+  flex-direction: column;
+  gap: 65px;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  .logo {
+    width: 200px;
+    height: auto;
+  }
+  .start-btn {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background-color: #ff5733;
+    font-family: variables.$button-font;
+    font-weight: 600;
+    text-decoration: none;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #e74c3c;
+    }
+  }
 }
