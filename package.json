@@ -1,5 +1,5 @@
 {
-  "name": "mysticarena",
+  "name": "mythicarena",
   "version": "1.0.0",
   "scripts": {
     "sass": "sass sass/main.scss css/main.css --watch"

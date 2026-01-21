@@ -1,9 +1,7 @@
-$background-color: #000000;
-
-
+@use 'variables';
 
 body {
-  background-color: $background-color;
+  background-color: variables.$bg-color;
 }
 
 .logo-container {
