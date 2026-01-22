@@ -22,7 +22,7 @@ body {
   height: 100vh;
 }
 .header-container .logo {
-  width: 200px;
+  width: 350px;
   height: auto;
 }
 .header-container .start-btn {
@@ -38,7 +38,7 @@ body {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-.header-container .start-btn:hover {
+.header-container .start-btn:active {
   background-color: #e74c3c;
 }
 
