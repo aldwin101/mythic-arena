@@ -1,4 +1,5 @@
 @use 'variables';
+@use 'character-select';
 
 * {
   margin: 0;
@@ -13,6 +14,7 @@ html {
 
 body {
   background-color: variables.$bg-color;
+  color: variables.$font-color;
 }
 
 .header-container {
