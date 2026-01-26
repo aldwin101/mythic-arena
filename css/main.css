@@ -1,49 +1,56 @@
-* {
+html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
-}
-
-body {
+.character-select-page {
   background-image: url("../assets/images/arena-bg.jpg");
   background-size: cover;
   background-position: center;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .character-select-container {
   padding: 2rem;
-  display: flex;
-  flex-direction: column;
   text-align: center;
+  height: 100%;
 }
 .character-select-container h1 {
   font-family: "Uncial Antiqua", system-ui;
+  font-size: 1.5rem;
   text-transform: uppercase;
   letter-spacing: 0.2rem;
   color: #e6e8ff;
+  padding-bottom: 1rem;
 }
 
 .character-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+  height: 85%;
+  background-color: rgba(30, 26, 22, 0.7);
+  border: 1px solid #ccc;
+  border-radius: 12px;
 }
 .character-grid .character-roster {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  row-gap: 1rem;
-  place-items: center;
-  padding: 40px;
+  margin: 0 auto;
 }
 .character-grid .character-container {
   width: 50px;
   height: 50px;
   overflow: hidden;
+  border: 2px solid #444;
+  border-radius: 6px;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 .character-grid .character-container .character-image {
   width: 100%;
@@ -84,8 +91,7 @@ body {
 }
 
 html {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 8px;
 }
 
 body {
@@ -96,17 +102,17 @@ body {
 .header-container {
   display: flex;
   flex-direction: column;
-  gap: 65px;
+  gap: 30px;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 .header-container .logo {
-  width: 350px;
+  width: 150px;
   height: auto;
 }
 .header-container .start-btn {
-  padding: 15px 30px;
+  padding: 15px;
   font-size: 1.2rem;
   background-color: #ff5733;
   font-family: "Montserrat", sans-serif;

@@ -1,52 +1,58 @@
 @use 'variables';
-
-* {
+html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html {
-  font-family: variables.$font-stack;
-  font-size: 16px;
-}
-
-body {
+.character-select-page {
   background-image: url('../assets/images/arena-bg.jpg');
   background-size: cover;
   background-position: center;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .character-select-container {
-  padding : 2rem;
-  display: flex;
-  flex-direction: column;
+  padding: 2rem;
   text-align: center;
+  height: 100%;
   h1 {
   font-family: "Uncial Antiqua", system-ui;
+  font-size: 1.5rem;
   text-transform: uppercase;
   letter-spacing: 0.2rem;
   color: #e6e8ff;
+  padding-bottom: 1rem;
   }
 }
 
 .character-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+  height: 85%;
+  background-color: rgba(30, 26, 22, .7);
+  border: 1px solid #ccc;
+  border-radius: 12px;
 
   .character-roster {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3,1fr);
-    row-gap: 1rem;
-    place-items: center;
-    padding: 40px;
+    margin: 0 auto;
   }
 
   .character-container {
     width: 50px;
     height: 50px;
     overflow: hidden;
+    border: 2px solid #444;
+  border-radius: 6px;      // optional, game-style
+  box-sizing: border-box;  // important
+  background-color: rgba(255, 255, 255, 0.1); // optional, game-style
 
     .character-image {
       width: 100%;
