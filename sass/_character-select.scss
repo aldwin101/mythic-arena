@@ -50,10 +50,9 @@ html, body {
     height: 50px;
     overflow: hidden;
     border: 2px solid #444;
-  border-radius: 6px;      // optional, game-style
-  box-sizing: border-box;  // important
-  background-color: rgba(255, 255, 255, 0.1); // optional, game-style
-
+    border-radius: 6px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.1);
     .character-image {
       width: 100%;
       height: 100%;
