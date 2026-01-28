@@ -1,0 +1,15 @@
+{
+  "characters": [
+    {
+      "id": 1,
+      "name": "Bravakar",
+      "stats": {
+        "health": 150,
+        "attack": 35,
+        "defense": 20
+      },
+      "description": "A strong melee fighter with high defense.",
+      "image": "../MythicArena/assets/images/characters/Bravakar.png"
+    }
+  ]
+}
