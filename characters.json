@@ -9,7 +9,95 @@
         "defense": 20
       },
       "description": "A strong melee fighter with high defense.",
-      "image": "../MythicArena/assets/images/characters/Bravakar.png"
+      "image": "./assets/images/characters/Bravakar.png"
+    },
+    {
+      "id": 2,
+      "name": "Gorblin",
+      "stats": {
+        "health": 120,
+        "attack": 25,
+        "defense": 10
+      },
+      "description": "A cunning rogue with high agility.",
+      "image": "./assets/images/characters/Gorblin.png"
+    },
+    {
+      "id": 3,
+      "name": "Eldramir",
+      "stats": {
+        "health": 100,
+        "attack": 30,
+        "defense": 20
+      },
+      "description": "A powerful mage with high intelligence.",
+      "image": "./assets/images/characters/Eldramir.png"
+    },
+    {
+      "id": 4,
+      "name": "MoonClaw",
+      "stats": {
+        "health": 110,
+        "attack": 20,
+        "defense": 15
+      },
+      "description": "A swift rogue with high agility.",
+      "image": "./assets/images/characters/MoonClaw.png"
+    },
+    {
+      "id": 5,
+      "name": "Gorunox",
+      "stats": {
+        "health": 130,
+        "attack": 25,
+        "defense": 20
+      },
+      "description": "A fierce warrior with unmatched strength.",
+      "image": "./assets/images/characters/Gorunox.png"
+    },
+    {
+      "id": 6,
+      "name": "Steamforge",
+      "stats": {
+        "health": 90,
+        "attack": 35,
+        "defense": 10
+      },
+      "description": "A mechanical genius with powerful gadgets.",
+      "image": "./assets/images/characters/Steamforge.png"
+    },
+    {
+      "id": 7,
+      "name": "Sir Valor",
+      "stats": {
+        "health": 100,
+        "attack": 30,
+        "defense": 15
+      },
+      "description": "A noble knight with exceptional combat skills.",
+      "image": "./assets/images/characters/Sir_Valor.png"
+    },
+    {
+      "id": 8,
+      "name": "Galaxion",
+      "stats": {
+        "health": 80,
+        "attack": 40,
+        "defense": 10
+      },
+      "description": "A cosmic being with extraordinary powers.",
+      "image": "./assets/images/characters/Galaxion.png"
+    },
+    {
+      "id": 9,
+      "name": "Darkblade",
+      "stats": {
+        "health": 140,
+        "attack": 30,
+        "defense": 25
+      },
+      "description": "A shadowy assassin with lethal precision.",
+      "image": "./assets/images/characters/Darkblade.png"
     }
   ]
 }
