@@ -31,7 +31,25 @@ export async function displayCharacters() { // async because it waits for data t
       selectedImage.src = character.image;
       selectedImage.alt = character.name;
 
-      descriptionBox.innerHTML = `<h2>${character.name}</h2><p>${character.description}</p>`;
+      descriptionBox.innerHTML = `
+      <h2>${character.name}</h2>
+      <p>${character.description}</p> 
+      
+      <div class="stat-health">
+        <label>Health:</label>
+        <meter id="health-meter" value="${character.stats.health}" min="0" max="100"></meter>
+      </div>
+
+      <div class="stat-attack">
+        <label>Attack:</label>
+        <meter id="attack-meter" value="${character.stats.attack}" min="0" max="100"></meter>
+      </div>
+
+      <div class="stat-defense">
+        <label>Defense:</label>
+        <meter id="defense-meter" value="${character.stats.defense}" min="0" max="100"></meter>
+      </div>
+      `;
     })
   })
 }

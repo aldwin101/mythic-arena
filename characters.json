@@ -5,7 +5,7 @@
       "name": "Bravakar",
       "stats": {
         "health": 150,
-        "attack": 35,
+        "attack": 30,
         "defense": 20
       },
       "description": "A strong melee fighter with high defense.",
@@ -15,7 +15,7 @@
       "id": 2,
       "name": "Gorblin",
       "stats": {
-        "health": 120,
+        "health": 100,
         "attack": 25,
         "defense": 10
       },
@@ -27,8 +27,8 @@
       "name": "Eldramir",
       "stats": {
         "health": 100,
-        "attack": 30,
-        "defense": 20
+        "attack": 65,
+        "defense": 5
       },
       "description": "A powerful mage with high intelligence.",
       "image": "./assets/images/characters/Eldramir.png"
@@ -59,8 +59,8 @@
       "id": 6,
       "name": "Steamforge",
       "stats": {
-        "health": 90,
-        "attack": 35,
+        "health": 100,
+        "attack": 50,
         "defense": 10
       },
       "description": "A mechanical genius with powerful gadgets.",
@@ -81,7 +81,7 @@
       "id": 8,
       "name": "Galaxion",
       "stats": {
-        "health": 80,
+        "health": 100,
         "attack": 40,
         "defense": 10
       },
