@@ -52,6 +52,9 @@ html, body {
   box-sizing: border-box;
   background-color: rgba(255, 255, 255, 0.1);
 }
+.character-grid .character-container figcaption {
+  display: none;
+}
 .character-grid .character-container .character-image {
   width: 100%;
   height: 100%;
@@ -82,6 +85,10 @@ html, body {
 }
 .character-grid .character-container .char9 {
   transform: scale(2.4) translate(2%, 23%);
+}
+.character-grid .selected-character-image img {
+  width: 200px;
+  height: auto;
 }
 
 * {
