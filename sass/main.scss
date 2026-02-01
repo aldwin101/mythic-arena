@@ -30,11 +30,11 @@ body {
   .start-btn {
     padding: clamp(1rem, 2vw, 2rem) clamp(2rem, 4vw, 4rem);
     font-size: clamp(1.2rem, 2vw, 2rem);
-    background-color: #ff5733;
-    font-family: variables.$button-font;
+    background-color: variables.$primary-color;
+    font-family: variables.$font-primary;
     font-weight: 600;
     text-decoration: none;
-    color: #ffffff;
+    color: variables.$button-font-color;
     border: none;
     border-radius: 8px;
     cursor: pointer;
