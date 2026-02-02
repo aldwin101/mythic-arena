@@ -5,25 +5,30 @@ displayCharacters();
 import { loadCharactersData } from "./charactersData.js";
 
 // function to display characters on the page
-export async function displayCharacters() { // async because it waits for data to load
-  const data = await loadCharactersData(); // wait for character data to be loaded
-  const characters = data.characters; // extract characters array from the data
-  const roster = document.querySelector('.character-roster'); // select the roster container
-  
-  roster.innerHTML = ''; // clear existing content before adding new characters
+export async function displayCharacters() { 
+  const data = await loadCharactersData(); 
+  const characters = data.characters; 
+  const roster = document.querySelector('.character-roster'); 
+  roster.innerHTML = ''; 
 
-  // loop through each character and create HTML elements
+  // loop through each character and create its HTML structure
   characters.forEach((character, index)=> {
     const figure = document.createElement('figure');
-    figure.className = 'character-container';
-
     const dynamicNumber = index +1;
+    figure.className = 'character-container';
     figure.innerHTML = `<img class="character-image char${dynamicNumber}" src="${character.image}" alt="${character.name}" >`;
-
-    roster.appendChild(figure); // add the figure element to the roster
     
+    roster.appendChild(figure); // add character image to the roster
+    
+
     // add click event listener to each character image
     figure.addEventListener('click', () => {
+
+      // remove 'selected' class from all characters and add it to the clicked one
+      document.querySelectorAll('.character-container')
+      .forEach(fig => fig.classList.remove('selected'));
+      figure.classList.add('selected');
+
       const selectedImage = document.querySelector('.selected-character-image img');
 
       const descriptionBox = document.querySelector('.description-box');
@@ -52,4 +57,7 @@ export async function displayCharacters() { // async because it waits for data t
       `;
     })
   })
+  // simulate a click on the first character to display its details by default
+  const defaultCharacter = document.querySelector('.char1');
+  defaultCharacter.click();
 }

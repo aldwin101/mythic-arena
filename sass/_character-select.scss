@@ -88,6 +88,13 @@ html, body {
     }
   }
 
+  .character-container.selected {
+  z-index: 10;
+  border: 3px solid variables.$primary-color;
+  box-shadow: 0 0 12px rgba(79, 140, 255, 0.6);
+  transform: scale(1.08);
+}
+
   .selected-character-image {
     display: grid;
     grid-template-rows: 1fr auto;
@@ -159,5 +166,33 @@ html, body {
     #defense-meter::-webkit-meter-optimum-value {
       background: blue;
     }
+  }
+}
+
+.rotate-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  color: white;
+
+  display: none; /* hidden by default */
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  font-size: 1.4rem;
+  z-index: 9999;
+  padding: 2rem;
+}
+
+/* ✅ Show ONLY on mobile portrait */
+@media (max-width: 900px) and (orientation: portrait) {
+  .rotate-overlay {
+    display: flex;
+    background-color: black;
+  }
+
+  body {
+    overflow: hidden; /* prevent scrolling behind */
   }
 }
