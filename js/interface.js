@@ -55,6 +55,8 @@ export async function displayCharacters() {
         <meter id="defense-meter" value="${character.stats.defense}" min="0" max="100"></meter>
       </div>
       `;
+
+      localStorage.setItem("selectedCharacter", JSON.stringify(character));
     })
   })
   // simulate a click on the first character to display its details by default
