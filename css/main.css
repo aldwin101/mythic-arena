@@ -148,13 +148,13 @@ html, body {
   border-radius: 999px;
   overflow: hidden;
 }
-.character-grid .description-box #health-meter::-webkit-meter-optimum-value {
+.character-grid .description-box .health-meter::-webkit-meter-optimum-value {
   background: green;
 }
-.character-grid .description-box #attack-meter::-webkit-meter-optimum-value {
+.character-grid .description-box .attack-meter::-webkit-meter-optimum-value {
   background: red;
 }
-.character-grid .description-box #defense-meter::-webkit-meter-optimum-value {
+.character-grid .description-box .defense-meter::-webkit-meter-optimum-value {
   background: blue;
 }
 

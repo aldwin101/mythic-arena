@@ -157,13 +157,13 @@ html, body {
       border-radius: 999px;
       overflow: hidden;
     }
-    #health-meter::-webkit-meter-optimum-value {
+    .health-meter::-webkit-meter-optimum-value {
       background: green;
     }
-    #attack-meter::-webkit-meter-optimum-value {
+    .attack-meter::-webkit-meter-optimum-value {
       background: red;
     }
-    #defense-meter::-webkit-meter-optimum-value {
+    .defense-meter::-webkit-meter-optimum-value {
       background: blue;
     }
   }

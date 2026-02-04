@@ -1,7 +1,7 @@
 {
   "characters": [
     {
-      "id": 1,
+      "id": "bravakar",
       "name": "Bravakar",
       "stats": {
         "health": 150,
@@ -12,7 +12,7 @@
       "image": "./assets/images/characters/Bravakar.png"
     },
     {
-      "id": 2,
+      "id": "gorblin",
       "name": "Gorblin",
       "stats": {
         "health": 100,
@@ -23,7 +23,7 @@
       "image": "./assets/images/characters/Gorblin.png"
     },
     {
-      "id": 3,
+      "id": "eldramir",
       "name": "Eldramir",
       "stats": {
         "health": 100,
@@ -34,7 +34,7 @@
       "image": "./assets/images/characters/Eldramir.png"
     },
     {
-      "id": 4,
+      "id": "moonclaw",
       "name": "MoonClaw",
       "stats": {
         "health": 110,
@@ -45,7 +45,7 @@
       "image": "./assets/images/characters/MoonClaw.png"
     },
     {
-      "id": 5,
+      "id": "gorunox",
       "name": "Gorunox",
       "stats": {
         "health": 130,
@@ -56,7 +56,7 @@
       "image": "./assets/images/characters/Gorunox.png"
     },
     {
-      "id": 6,
+      "id": "steamforge",
       "name": "Steamforge",
       "stats": {
         "health": 100,
@@ -67,7 +67,7 @@
       "image": "./assets/images/characters/Steamforge.png"
     },
     {
-      "id": 7,
+      "id": "sir-valor",
       "name": "Sir Valor",
       "stats": {
         "health": 100,
@@ -78,7 +78,7 @@
       "image": "./assets/images/characters/Sir_Valor.png"
     },
     {
-      "id": 8,
+      "id": "galaxion",
       "name": "Galaxion",
       "stats": {
         "health": 100,
@@ -89,7 +89,7 @@
       "image": "./assets/images/characters/Galaxion.png"
     },
     {
-      "id": 9,
+      "id": "darkblade",
       "name": "Darkblade",
       "stats": {
         "health": 140,
