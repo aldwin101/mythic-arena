@@ -2,19 +2,17 @@
 @use 'character-select';
 @use 'arena';
 
-* {
+html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html {
-  font-size: 8px;
-}
-
 body {
   background-color: variables.$bg-color;
   color: variables.$font-color;
+  font-size: .5rem;
 }
 
 .header-container {

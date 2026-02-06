@@ -25,7 +25,7 @@ export async function displayCharacters() {
     
     roster.appendChild(figure);
 
-
+    
     function handleCharacterSelection() {
       document.querySelectorAll('.character-container')
         .forEach(fig => fig.classList.remove('selected'));
@@ -60,7 +60,6 @@ export async function displayCharacters() {
 
       localStorage.setItem('selectedCharacter', JSON.stringify(character));
     }
-
     // click event
     figure.addEventListener('click', handleCharacterSelection);
 
