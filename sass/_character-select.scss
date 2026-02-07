@@ -1,4 +1,5 @@
 @use 'variables';
+@use 'mixins';
 
 html, body {
   height: 100%;
@@ -28,7 +29,6 @@ html, body {
   z-index: -1;
   transform: scale(1.1); 
 }
-
 
 .character-select-container {
   padding: 2rem;
@@ -184,29 +184,4 @@ html, body {
   }
 }
 
-.rotate-overlay {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.95);
-  color: white;
-
-  display: none; /* hidden by default */
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-  font-size: 1.4rem;
-  z-index: 9999;
-  padding: 2rem;
-}
-
-@media (max-width: 900px) and (orientation: portrait) {
-  .rotate-overlay {
-    display: flex;
-    background-color: black;
-  }
-
-  body {
-    overflow: hidden;
-  }
-}
+@include mixins.rotate-overlay()

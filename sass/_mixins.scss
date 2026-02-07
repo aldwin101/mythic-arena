@@ -1,0 +1,31 @@
+@mixin rotate-overlay(
+  $breakpoint: 900px,
+  $overlay-bg: rgba(0, 0, 0, 0.95)
+) {
+  .rotate-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: $overlay-bg;
+    color: white;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    font-size: 1.4rem;
+    z-index: 9999;
+    padding: 2rem;
+  }
+
+  @media (max-width: $breakpoint) and (orientation: portrait) {
+    .rotate-overlay {
+      display: flex;
+      background-color: black;
+    }
+
+    body {
+      overflow: hidden;
+    }
+  }
+}

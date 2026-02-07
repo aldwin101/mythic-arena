@@ -9,10 +9,31 @@
   <title>Mythic Arena</title>
 </head>
 <body class="arena-page">
-  <h1>
-    <p>
-      This is where the battle happen
-    </p> 
-  </h1>
+  <div class='rotate-overlay'>
+    <img src='/assets/images/rotate-your-phone.gif' alt='rotate-your-phone'>
+  </div>
+  <main>
+    <section>
+      <meter class="char-health"
+        min="0"
+        max="100"
+        value="25"
+        low="30"
+        high="70"
+        optimum="80">
+      </meter>    
+    </section>
+
+    <section>
+      <meter class="char-health"
+        min="0"
+        max="100"
+        value="90"
+        low="30"
+        high="70"
+        optimum="80">
+      </meter> 
+    </section>
+  </main>
 </body>
 </html>

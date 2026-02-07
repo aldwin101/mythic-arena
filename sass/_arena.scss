@@ -1,3 +1,6 @@
+@use 'variables';
+@use 'mixins';
+
 * {
   margin: 0;
   padding: 0;
@@ -15,3 +18,10 @@ html {
   background-size: cover;
   background-position: center;
 }
+
+.char-health {
+  width: 20rem;
+  height: 3rem;
+}
+
+@include mixins.rotate-overlay

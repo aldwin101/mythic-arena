@@ -176,7 +176,7 @@ html, body {
   inset: 0;
   background-color: rgba(0, 0, 0, 0.95);
   color: white;
-  display: none; /* hidden by default */
+  display: none;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -212,6 +212,34 @@ html {
   background-position: center;
 }
 
+.char-health {
+  width: 20rem;
+  height: 3rem;
+}
+
+.rotate-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  color: white;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.4rem;
+  z-index: 9999;
+  padding: 2rem;
+}
+
+@media (max-width: 900px) and (orientation: portrait) {
+  .rotate-overlay {
+    display: flex;
+    background-color: black;
+  }
+  body {
+    overflow: hidden;
+  }
+}
 html, body {
   height: 100%;
   margin: 0;
