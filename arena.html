@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Uncial+Antiqua&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
+  <script src="/js/arena.js" defer></script>
+
 
   <title>Mythic Arena</title>
 </head>
@@ -12,23 +14,33 @@
   <div class='rotate-overlay'>
     <img src='/assets/images/rotate-your-phone.gif' alt='rotate-your-phone'>
   </div>
-  <main>
-    <section>
+  <main class="battle-field">
+    <section class="player-container">
       <h2 class="player-name">
       </h2>
-      <progress class="player-health" value="75" max="100"></progress>   
-      <img src="" alt="">
+      <meter
+        class="player-health"
+        min="0"
+        max="100"
+        low="30"
+        high="70"
+        optimum="100"
+        value="100">
+      </meter>
+
+      <img class="player-img" src="" alt="">
     </section>
 
     <section>
-      <progress class="player-health"
+      <meter
+        class="enemy-health"
         min="0"
         max="100"
-        value="90"
         low="30"
         high="70"
-        optimum="80">
-      </progress> 
+        optimum="100"
+        value="150">
+      </meter>
     </section>
   </main>
 </body>

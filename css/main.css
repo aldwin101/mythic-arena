@@ -206,15 +206,33 @@ html {
 
 .arena-page {
   min-height: 100vh;
+  height: 100vh;
   background-image: url("../assets/images/arena-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
+.arena-page .battle-field {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+}
+.arena-page .battle-field .player-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.arena-page .battle-field .player-container .player-img {
+  align-self: center;
+}
 
-.player-health {
+.player-health, .enemy-health {
   width: 20rem;
   height: 3rem;
+}
+
+.player-img {
+  width: 100px;
 }
 
 .rotate-overlay {

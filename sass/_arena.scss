@@ -13,16 +13,37 @@ html {
 
 .arena-page {
   min-height: 100vh;
+  height: 100vh;
   background-image: url('../assets/images/arena-bg.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  .battle-field {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+    .player-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      .player-img {
+        align-self: center;
+      }
+    }
+  }
 }
 
-.player-health {
+.player-health, .enemy-health {
   width: 20rem;
   height: 3rem;
 }
+
+.player-img {
+  width: 100px;
+}
+
+
+
 
 
 @include mixins.rotate-overlay
