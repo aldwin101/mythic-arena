@@ -12,38 +12,37 @@ html {
 }
 
 .arena-page {
+  font-size: 2em;
   min-height: 100vh;
   height: 100vh;
   background-image: url('../assets/images/arena-bg.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+
   .battle-field {
     display: grid;
     grid-template-columns: 1fr 1fr;
     height: 100%;
+
     .player-container {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      height: 100%;
+
       .player-img {
+        width: clamp(200px, 22vw, 350px);
         align-self: center;
+        margin-top: auto;     
       }
     }
   }
 }
 
+
 .player-health, .enemy-health {
-  width: 20rem;
-  height: 3rem;
+  width: 30rem;
+  height: 5rem;
 }
-
-.player-img {
-  width: 100px;
-}
-
-
-
-
 
 @include mixins.rotate-overlay
