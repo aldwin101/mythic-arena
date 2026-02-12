@@ -10,6 +10,7 @@ html, body {
 }
 
 body {
+  font-family: variables.$font-primary;
   background-color: variables.$bg-color;
   color: variables.$font-color;
   font-size: .5rem;

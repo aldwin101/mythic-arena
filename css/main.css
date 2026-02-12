@@ -228,6 +228,17 @@ html {
   align-self: center;
   margin-top: auto;
 }
+.arena-page .battle-field .enemy-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: flex-end;
+}
+.arena-page .battle-field .enemy-container .enemy-img {
+  width: clamp(200px, 22vw, 350px);
+  align-self: center;
+  margin-top: auto;
+}
 
 .player-health, .enemy-health {
   width: 30rem;
@@ -265,6 +276,7 @@ html, body {
 }
 
 body {
+  font-family: "Uncial Antiqua", cursive;
   background-color: #000000;
   color: #ffffff;
   font-size: 0.5rem;

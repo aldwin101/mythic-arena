@@ -36,6 +36,19 @@ html {
         margin-top: auto;     
       }
     }
+
+    .enemy-container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      align-items: flex-end;
+      
+      .enemy-img {
+        width: clamp(200px, 22vw, 350px);
+        align-self: center;
+        margin-top: auto;     
+      }
+    }
   }
 }
 
