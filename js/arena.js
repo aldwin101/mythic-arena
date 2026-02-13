@@ -1,17 +1,23 @@
-const savedCharacter = JSON.parse(
+const savedSelectedCharacter = JSON.parse(
   localStorage.getItem('selectedCharacter')
 );
 
 document.querySelector('.player-name').textContent =
-  savedCharacter.name;
+  savedSelectedCharacter.name;
 
 document.querySelector('.player-health').value =
-  savedCharacter.stats.health;
+  savedSelectedCharacter.stats.health;
 
 document.querySelector('.player-img').src =
-  savedCharacter.image;
+  savedSelectedCharacter.image;
 
+  
+// If player is facing left, flip it to face right
+if (savedSelectedCharacter.facing === "left") {
+  document.querySelector('.player-img').classList.add('face-right');
+}
 
+// Load randon enemy data and display
 document.addEventListener("DOMContentLoaded", async () => {
 
   const response = await fetch('./characters.json'); 
@@ -21,14 +27,21 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Check if enemy already saved
   let savedEnemy = JSON.parse(localStorage.getItem("enemy"));
 
-  // If not, create random enemy
-  if (!savedEnemy) {
-    const randomEnemy =
-      characters[Math.floor(Math.random() * characters.length)];
-
-    localStorage.setItem("enemy", JSON.stringify(randomEnemy));
-    savedEnemy = randomEnemy;
+  // Ensure savedEnemy is not the same as savedSelectedCharacter
+  if (savedEnemy.id === savedSelectedCharacter.id) {
+    // If they are the same, select a different random enemy
+    let differentEnemy = characters[Math.floor(Math.random() * characters.length)];
+    while (differentEnemy.id === savedSelectedCharacter.id) {
+      differentEnemy = characters[Math.floor(Math.random() * characters.length)];
+    }
+    localStorage.setItem("enemy", JSON.stringify(differentEnemy));
+    savedEnemy = differentEnemy;
   }
+
+if (savedEnemy.facing === "right") {
+    document.querySelector('.enemy-img').classList.add('face-left');
+}
+
 
   // Display enemy
   const enemyHealth = document.querySelector(".enemy-health");

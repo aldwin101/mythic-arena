@@ -19,22 +19,17 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-
   .battle-field {
     display: grid;
     grid-template-columns: 1fr 1fr;
     height: 100%;
+    padding: 1rem;
 
     .player-container {
       display: flex;
       flex-direction: column;
       height: 100%;
 
-      .player-img {
-        width: clamp(200px, 22vw, 350px);
-        align-self: center;
-        margin-top: auto;     
-      }
     }
 
     .enemy-container {
@@ -42,13 +37,14 @@ html {
       flex-direction: column;
       height: 100%;
       align-items: flex-end;
-      
-      .enemy-img {
-        width: clamp(200px, 22vw, 350px);
-        align-self: center;
-        margin-top: auto;     
-      }
     }
+
+    .player-img, .enemy-img {
+      width: clamp(200px, 22vw, 350px);
+      align-self: center;
+      margin-top: auto;  
+    }
+
   }
 }
 
@@ -56,6 +52,14 @@ html {
 .player-health, .enemy-health {
   width: 30rem;
   height: 5rem;
+}
+
+.face-right {
+  transform: scaleX(-1);
+}
+
+.face-left {
+  transform: scaleX(1);
 }
 
 @include mixins.rotate-overlay

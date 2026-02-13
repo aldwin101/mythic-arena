@@ -217,16 +217,12 @@ html {
   display: grid;
   grid-template-columns: 1fr 1fr;
   height: 100%;
+  padding: 1rem;
 }
 .arena-page .battle-field .player-container {
   display: flex;
   flex-direction: column;
   height: 100%;
-}
-.arena-page .battle-field .player-container .player-img {
-  width: clamp(200px, 22vw, 350px);
-  align-self: center;
-  margin-top: auto;
 }
 .arena-page .battle-field .enemy-container {
   display: flex;
@@ -234,7 +230,7 @@ html {
   height: 100%;
   align-items: flex-end;
 }
-.arena-page .battle-field .enemy-container .enemy-img {
+.arena-page .battle-field .player-img, .arena-page .battle-field .enemy-img {
   width: clamp(200px, 22vw, 350px);
   align-self: center;
   margin-top: auto;
@@ -243,6 +239,14 @@ html {
 .player-health, .enemy-health {
   width: 30rem;
   height: 5rem;
+}
+
+.face-right {
+  transform: scaleX(-1);
+}
+
+.face-left {
+  transform: scaleX(1);
 }
 
 .rotate-overlay {
