@@ -21,15 +21,16 @@ html {
   background-position: center;
   .battle-field {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr auto 1fr;
     height: 100%;
     padding: 1rem;
+
+    
 
     .player-container {
       display: flex;
       flex-direction: column;
       height: 100%;
-
     }
 
     .enemy-container {
@@ -45,6 +46,32 @@ html {
       margin-top: auto;  
     }
 
+    .player-name, .enemy-name {
+      font-size: 1.2em;
+      text-shadow: variables.$text-shadow;
+      font-weight: bold;
+    }
+
+    .vs-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      a {
+        font-size: .8em;
+        color: variables.$primary-color;
+        font-weight: bold;
+        text-decoration: none;
+        border: 2px solid variables.$primary-color;
+        border-radius: 10px;
+        padding: 0.5rem 1rem;
+      }
+      .vs-text {
+        font-size: 2em;
+        color: #DC143C;
+        text-shadow: variables.$text-shadow;  
+        font-weight: bold;
+      }
+    }
   }
 }
 

@@ -215,7 +215,7 @@ html {
 }
 .arena-page .battle-field {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr auto 1fr;
   height: 100%;
   padding: 1rem;
 }
@@ -234,6 +234,31 @@ html {
   width: clamp(200px, 22vw, 350px);
   align-self: center;
   margin-top: auto;
+}
+.arena-page .battle-field .player-name, .arena-page .battle-field .enemy-name {
+  font-size: 1.2em;
+  text-shadow: 2px 2px 2px #FFA500, 0 0 6px #FFD700;
+  font-weight: bold;
+}
+.arena-page .battle-field .vs-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.arena-page .battle-field .vs-container a {
+  font-size: 0.8em;
+  color: #EFBF04;
+  font-weight: bold;
+  text-decoration: none;
+  border: 2px solid #EFBF04;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+}
+.arena-page .battle-field .vs-container .vs-text {
+  font-size: 2em;
+  color: #DC143C;
+  text-shadow: 2px 2px 2px #FFA500, 0 0 6px #FFD700;
+  font-weight: bold;
 }
 
 .player-health, .enemy-health {
