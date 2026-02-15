@@ -271,7 +271,7 @@ html {
 }
 
 .face-left {
-  transform: scaleX(1);
+  transform: scaleX(-1);
 }
 
 .rotate-overlay {

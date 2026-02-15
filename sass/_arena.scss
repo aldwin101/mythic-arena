@@ -25,12 +25,11 @@ html {
     height: 100%;
     padding: 1rem;
 
-    
-
     .player-container {
       display: flex;
       flex-direction: column;
       height: 100%;
+
     }
 
     .enemy-container {
@@ -86,7 +85,7 @@ html {
 }
 
 .face-left {
-  transform: scaleX(1);
+  transform: scaleX(-1);
 }
 
 @include mixins.rotate-overlay

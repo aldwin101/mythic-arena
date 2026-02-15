@@ -1,58 +1,56 @@
-const savedSelectedCharacter = JSON.parse(
-  localStorage.getItem('selectedCharacter')
-);
+//event listener for arena page
+document.addEventListener('DOMContentLoaded', async () => {
+  const savedSelectedCharacter = JSON.parse(
+    localStorage.getItem('selectedCharacter')
+  );
 
-document.querySelector('.player-name').textContent =
-  savedSelectedCharacter.name;
-
-document.querySelector('.player-health').value =
-  savedSelectedCharacter.stats.health;
-
-document.querySelector('.player-img').src =
-  savedSelectedCharacter.image;
-
-  
-// If player is facing left, flip it to face right
-if (savedSelectedCharacter.facing === "left") {
-  document.querySelector('.player-img').classList.add('face-right');
-}
-
-// Load randon enemy data and display
-document.addEventListener("DOMContentLoaded", async () => {
-
-  const response = await fetch('./characters.json'); 
-  const data = await response.json(); // Load character data from JSON file
-  const characters = data.characters; // Access the characters array from the loaded data
-
-  // Check if enemy already saved
-  let savedEnemy = JSON.parse(localStorage.getItem("enemy"));
-
-  // Ensure savedEnemy is not the same as savedSelectedCharacter
-  if (savedEnemy.id === savedSelectedCharacter.id) {
-    // If they are the same, select a different random enemy
-    let differentEnemy = characters[Math.floor(Math.random() * characters.length)];
-    while (differentEnemy.id === savedSelectedCharacter.id) {
-      differentEnemy = characters[Math.floor(Math.random() * characters.length)];
-    }
-    localStorage.setItem("enemy", JSON.stringify(differentEnemy));
-    savedEnemy = differentEnemy;
+  // If no character is selected, redirect to character selection page
+  if (!savedSelectedCharacter) {
+    window.location.href = 'index.html';
+    return;
   }
 
-if (savedEnemy.facing === "right") {
-    document.querySelector('.enemy-img').classList.add('face-left');
-}
+  document.querySelector('.player-name').textContent = savedSelectedCharacter.name;
+  document.querySelector('.player-img').src = savedSelectedCharacter.image;
 
+  if (savedSelectedCharacter.facing === 'left') {
+    document.querySelector('.player-img').classList.add('face-right');
+  }
 
-  // Display enemy
-  const enemyHealth = document.querySelector(".enemy-health");
+  const playerHealth = document.querySelector('.player-health');
+  playerHealth.max = savedSelectedCharacter.stats.health;
+  playerHealth.value = savedSelectedCharacter.stats.health;
 
-  document.querySelector(".enemy-name").textContent =
-    savedEnemy.name;
+  const response = await fetch('./characters.json');
+  const data = await response.json();
+  const characters = data.characters;
 
-  document.querySelector(".enemy-img").src =
-    savedEnemy.image;
+  let savedEnemy = JSON.parse(localStorage.getItem('enemy'));
 
+  // If no enemy is saved or the saved enemy is the same as the selected character, pick a new random enemy
+  if (!savedEnemy || savedEnemy.id === savedSelectedCharacter.id) {
+    do {
+      savedEnemy = characters[Math.floor(Math.random() * characters.length)];
+    } while (savedEnemy.id === savedSelectedCharacter.id);
+
+    localStorage.setItem('enemy', JSON.stringify(savedEnemy));
+  }
+
+  document.querySelector('.enemy-name').textContent = savedEnemy.name;
+  document.querySelector('.enemy-img').src = savedEnemy.image;
+
+  const enemyHealth = document.querySelector('.enemy-health');
   enemyHealth.max = savedEnemy.stats.health;
   enemyHealth.value = savedEnemy.stats.health;
 
+  if (savedEnemy.facing === 'right') {
+    document.querySelector('.enemy-img').classList.add('face-left');
+  }
+});
+
+// Clear localStorage when "End Match" button is clicked
+const endMatchBtn = document.querySelector('.end-match-btn');
+endMatchBtn.addEventListener('click', () => {
+  localStorage.removeItem('selectedCharacter');
+  localStorage.removeItem('enemy');
 });
