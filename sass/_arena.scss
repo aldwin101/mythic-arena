@@ -57,19 +57,36 @@ html {
       align-items: center;
       a {
         font-size: .8em;
-        color: variables.$primary-color;
+        color: variables.$button-font-color;
+        background-color: variables.$primary-color;
         font-weight: bold;
         text-decoration: none;
         border: 2px solid variables.$primary-color;
-        border-radius: 10px;
+        border-radius: variables.$border-radius;
         padding: 0.5rem 1rem;
       }
       .vs-text {
         font-size: 2em;
-        color: #DC143C;
+        color: variables.$secondary-color;
         text-shadow: variables.$text-shadow;  
         font-weight: bold;
       }
+      .attack-button {
+        font-family: variables.$font-primary;
+        margin-top: 1rem;
+        font-size: .8em;
+        color: variables.$button-font-color;
+        font-weight: bold;
+        text-decoration: none;
+        border: 2px solid variables.$primary-color;
+        border-radius: variables.$border-radius;
+        padding: 0.5rem 1rem;
+        background-color: variables.$primary-color;
+        cursor: pointer;
+        margin-top: auto;
+        margin-bottom: 20px;
+      }
+
     }
   }
 }
@@ -80,11 +97,7 @@ html {
   height: 5rem;
 }
 
-.face-right {
-  transform: scaleX(-1);
-}
-
-.face-left {
+.face-right, .face-left {
   transform: scaleX(-1);
 }
 

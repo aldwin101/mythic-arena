@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // If no character is selected, redirect to character selection page
   if (!savedSelectedCharacter) {
-    window.location.href = 'index.html';
+    window.location.href = 'character-select.html';
     return;
   }
 
@@ -54,3 +54,42 @@ endMatchBtn.addEventListener('click', () => {
   localStorage.removeItem('selectedCharacter');
   localStorage.removeItem('enemy');
 });
+
+
+const attackBtn = document.querySelector('.attack-button');
+attackBtn.addEventListener('click', () => {
+
+  const playerString = localStorage.getItem('selectedCharacter');
+  const enemyString = localStorage.getItem('enemy');
+
+  const savedcharacter = JSON.parse(playerString);
+  const savedEnemy = JSON.parse(enemyString);
+
+  const playerHealth = document.querySelector('.player-health');
+  const enemyHealth = document.querySelector('.enemy-health');
+
+  const roll = Math.floor(Math.random() * 10) + 1; // Simulate a dice roll (1-10)
+  const AdditionalAttackChance = roll === 1; // 10% chance for an additional attack
+
+  const playerAttack = savedcharacter.stats.attack + (AdditionalAttackChance ? savedcharacter.stats.attack * 0.1 : 0); 
+  const enemyAttack = savedEnemy.stats.attack + (AdditionalAttackChance ? savedEnemy.stats.attack * 0.1 : 0); 
+
+  playerHealth.value -= enemyAttack;
+  enemyHealth.value -= playerAttack;
+
+  setTimeout(() => {
+    const gameStatus = document.querySelector('.game-status');
+    if (enemyHealth.value === 0 && playerHealth.value > 0) {
+        gameStatus.textContent = "Victory! You won!";
+        attackBtn.disabled = true;
+    } else if (playerHealth.value === 0 && enemyHealth.value > 0) {
+        gameStatus.textContent = "Defeat! You lost!";
+    } else if (playerHealth.value === 0 && enemyHealth.value === 0) {
+        gameStatus.textContent = "It's a draw!";
+      attackBtn.disabled = true;
+    }
+}, 200);
+})
+
+
+

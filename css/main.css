@@ -247,18 +247,34 @@ html {
 }
 .arena-page .battle-field .vs-container a {
   font-size: 0.8em;
-  color: #EFBF04;
+  color: #000000;
+  background-color: #EFBF04;
   font-weight: bold;
   text-decoration: none;
   border: 2px solid #EFBF04;
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 0.5rem 1rem;
 }
 .arena-page .battle-field .vs-container .vs-text {
   font-size: 2em;
-  color: #DC143C;
+  color: #ff6347;
   text-shadow: 2px 2px 2px #FFA500, 0 0 6px #FFD700;
   font-weight: bold;
+}
+.arena-page .battle-field .vs-container .attack-button {
+  font-family: "Uncial Antiqua", cursive;
+  margin-top: 1rem;
+  font-size: 0.8em;
+  color: #000000;
+  font-weight: bold;
+  text-decoration: none;
+  border: 2px solid #EFBF04;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  background-color: #EFBF04;
+  cursor: pointer;
+  margin-top: auto;
+  margin-bottom: 20px;
 }
 
 .player-health, .enemy-health {
@@ -266,11 +282,7 @@ html {
   height: 5rem;
 }
 
-.face-right {
-  transform: scaleX(-1);
-}
-
-.face-left {
+.face-right, .face-left {
   transform: scaleX(-1);
 }
 

@@ -7,7 +7,7 @@
       "stats": {
         "health": 150,
         "attack": 30,
-        "defense": 20
+        "defense": 60
       },
       "description": "A strong melee fighter with high defense.",
       "image": "./assets/images/characters/Bravakar.png"
@@ -18,7 +18,7 @@
       "facing": "left",
       "stats": {
         "health": 100,
-        "attack": 25,
+        "attack": 35,
         "defense": 10
       },
       "description": "A cunning rogue with high agility.",
@@ -30,7 +30,7 @@
       "facing": "left",
       "stats": {
         "health": 100,
-        "attack": 65,
+        "attack": 40,
         "defense": 5
       },
       "description": "A powerful mage with high intelligence.",
@@ -42,7 +42,7 @@
       "facing": "right",
       "stats": {
         "health": 110,
-        "attack": 20,
+        "attack": 30,
         "defense": 15
       },
       "description": "A swift rogue with high agility.",
@@ -54,7 +54,7 @@
       "facing": "left",
       "stats": {
         "health": 130,
-        "attack": 25,
+        "attack": 35,
         "defense": 20
       },
       "description": "A fierce warrior with unmatched strength.",
@@ -67,7 +67,7 @@
       "stats": {
         "health": 100,
         "attack": 50,
-        "defense": 10
+        "defense": 60
       },
       "description": "A mechanical genius with powerful gadgets.",
       "image": "./assets/images/characters/Steamforge.png"
@@ -79,7 +79,7 @@
       "stats": {
         "health": 100,
         "attack": 30,
-        "defense": 15
+        "defense": 55
       },
       "description": "A noble knight with exceptional combat skills.",
       "image": "./assets/images/characters/Sir_Valor.png"
