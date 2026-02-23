@@ -4,12 +4,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     localStorage.getItem('selectedCharacter')
   );
 
-  // If no character is selected, redirect to character selection page
-  if (!savedSelectedCharacter) {
-    window.location.href = 'character-select.html';
-    return;
-  }
-
   document.querySelector('.player-name').textContent = savedSelectedCharacter.name;
   document.querySelector('.player-img').src = savedSelectedCharacter.image;
 
@@ -18,7 +12,19 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   const playerHealth = document.querySelector('.player-health');
-  playerHealth.max = savedSelectedCharacter.stats.health;
+
+  
+// maxHealth setup for player
+if (!savedSelectedCharacter.stats.maxHealth) {
+  savedSelectedCharacter.stats.maxHealth = savedSelectedCharacter.stats.health;
+  savedSelectedCharacter.stats.health = savedSelectedCharacter.stats.maxHealth;
+
+  //save the updated character with maxHealth back to localStorage
+  localStorage.setItem('selectedCharacter', JSON.stringify(savedSelectedCharacter));
+}
+
+
+  playerHealth.max = savedSelectedCharacter.stats.maxHealth;
   playerHealth.value = savedSelectedCharacter.stats.health;
 
   const response = await fetch('./characters.json');
@@ -27,7 +33,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   let savedEnemy = JSON.parse(localStorage.getItem('enemy'));
 
-  // If no enemy is saved or the saved enemy is the same as the selected character, pick a new random enemy
+
+  //select a random enemy if there isn't one saved or if the saved enemy is the same as the selected character
   if (!savedEnemy || savedEnemy.id === savedSelectedCharacter.id) {
     do {
       savedEnemy = characters[Math.floor(Math.random() * characters.length)];
@@ -40,7 +47,17 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.querySelector('.enemy-img').src = savedEnemy.image;
 
   const enemyHealth = document.querySelector('.enemy-health');
-  enemyHealth.max = savedEnemy.stats.health;
+
+  // maxHealth setup for enemy
+  if (!savedEnemy.stats.maxHealth) {
+    savedEnemy.stats.maxHealth = savedEnemy.stats.health;
+    savedEnemy.stats.health = savedEnemy.stats.maxHealth;
+
+  //save the updated enemy with maxHealth back to localStorage
+    localStorage.setItem('enemy', JSON.stringify(savedEnemy));
+  }
+
+  enemyHealth.max = savedEnemy.stats.maxHealth;
   enemyHealth.value = savedEnemy.stats.health;
 
   if (savedEnemy.facing === 'right') {
@@ -48,35 +65,47 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 });
 
-// Clear localStorage when "End Match" button is clicked
+// clear localStorage when "End Match" button is clicked
 const endMatchBtn = document.querySelector('.end-match-btn');
 endMatchBtn.addEventListener('click', () => {
   localStorage.removeItem('selectedCharacter');
   localStorage.removeItem('enemy');
 });
 
-
+// attack button event listener
 const attackBtn = document.querySelector('.attack-button');
 attackBtn.addEventListener('click', () => {
 
   const playerString = localStorage.getItem('selectedCharacter');
   const enemyString = localStorage.getItem('enemy');
 
-  const savedcharacter = JSON.parse(playerString);
+  const savedCharacter = JSON.parse(playerString);
   const savedEnemy = JSON.parse(enemyString);
 
   const playerHealth = document.querySelector('.player-health');
   const enemyHealth = document.querySelector('.enemy-health');
 
-  const roll = Math.floor(Math.random() * 10) + 1; // Simulate a dice roll (1-10)
+  const roll = Math.floor(Math.random() * 10) + 1; // simulate a dice roll (1-10)
   const AdditionalAttackChance = roll === 1; // 10% chance for an additional attack
 
-  const playerAttack = savedcharacter.stats.attack + (AdditionalAttackChance ? savedcharacter.stats.attack * 0.1 : 0); 
+  // calculate attack values with potential bonus from the dice roll
+  const playerAttack = savedCharacter.stats.attack + (AdditionalAttackChance ? savedCharacter.stats.attack * 0.1 : 0); 
   const enemyAttack = savedEnemy.stats.attack + (AdditionalAttackChance ? savedEnemy.stats.attack * 0.1 : 0); 
 
-  playerHealth.value -= enemyAttack;
-  enemyHealth.value -= playerAttack;
+  const updatedPlayerHealth = playerHealth.value - enemyAttack;
+  const updatedEnemyHealth = enemyHealth.value - playerAttack;
 
+  savedCharacter.stats.health = Math.max(0, updatedPlayerHealth);
+  savedEnemy.stats.health = Math.max(0, updatedEnemyHealth);
+
+  playerHealth.value = savedCharacter.stats.health;
+  enemyHealth.value = savedEnemy.stats.health;
+
+  //save the updated character and enemy back to localStorage
+  localStorage.setItem('selectedCharacter', JSON.stringify(savedCharacter));
+  localStorage.setItem('enemy', JSON.stringify(savedEnemy));
+
+  // check for victory, defeat, or draw after a short delay to allow health bars to update
   setTimeout(() => {
     const gameStatus = document.querySelector('.game-status');
     if (enemyHealth.value === 0 && playerHealth.value > 0) {
@@ -84,12 +113,10 @@ attackBtn.addEventListener('click', () => {
         attackBtn.disabled = true;
     } else if (playerHealth.value === 0 && enemyHealth.value > 0) {
         gameStatus.textContent = "Defeat! You lost!";
+        attackBtn.disabled = true;
     } else if (playerHealth.value === 0 && enemyHealth.value === 0) {
         gameStatus.textContent = "It's a draw!";
-      attackBtn.disabled = true;
+        attackBtn.disabled = true;
     }
-}, 200);
-})
-
-
-
+  }, 200);
+});
