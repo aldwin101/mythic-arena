@@ -10,9 +10,11 @@ export async function displayCharacters() {
   const characters = data.characters; 
   const roster = document.querySelector('.character-roster'); 
   roster.innerHTML = '';
-
+  
+  // get the saved character from localStorage to restore selection on page load
   const savedCharacter = JSON.parse(localStorage.getItem('selectedCharacter'));
 
+  // loop through characters and create figure elements for each
   characters.forEach((character, index) => {
     const figure = document.createElement('figure');
     const dynamicNumber = index + 1;
@@ -25,7 +27,7 @@ export async function displayCharacters() {
     
     roster.appendChild(figure);
 
-    
+    // function to handle character selection
     function handleCharacterSelection() {
       document.querySelectorAll('.character-container')
         .forEach(fig => fig.classList.remove('selected'));
@@ -58,18 +60,19 @@ export async function displayCharacters() {
         </div>
       `;
 
+      // save selected character to localStorage for use in arena page
       localStorage.setItem('selectedCharacter', JSON.stringify(character));
     }
-    // click event
+    // click event listener for character selection
     figure.addEventListener('click', handleCharacterSelection);
 
-    // restore saved character
+    // restore selection on page load if it matches the character
     if (savedCharacter && savedCharacter.id === character.id) {
       handleCharacterSelection();
     }
   });
 
-  // default selection if nothing saved
+  // default to first character if no saved selection or if saved selection doesn't match any character
   if (!savedCharacter) {
     const defaultCharacter = document.querySelector('.char1');
     defaultCharacter.click();
