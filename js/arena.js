@@ -23,7 +23,6 @@ if (!savedSelectedCharacter.stats.maxHealth) {
   localStorage.setItem('selectedCharacter', JSON.stringify(savedSelectedCharacter));
 }
 
-
   playerHealth.max = savedSelectedCharacter.stats.maxHealth;
   playerHealth.value = savedSelectedCharacter.stats.health;
 
@@ -88,40 +87,50 @@ attackBtn.addEventListener('click', () => {
   const roll = Math.floor(Math.random() * 10) + 1; // simulate a dice roll (1-10)
   const AdditionalAttackChance = roll === 1; // 10% chance for an additional attack
 
-// calculate attack values with potential bonus from the dice roll
+  // calculate attack values with potential bonus from the dice roll
   const playerAttack = savedCharacter.stats.attack +
     (AdditionalAttackChance ? savedCharacter.stats.attack * 0.1 : 0);
 
   const enemyAttack = savedEnemy.stats.attack +
     (AdditionalAttackChance ? savedEnemy.stats.attack * 0.1 : 0);
 
-  // player attacks first
-  const updatedEnemyHealth = enemyHealth.value - playerAttack; // subtract player damage from enemy
-  savedEnemy.stats.health = Math.max(0, updatedEnemyHealth); // prevent negative health
-  enemyHealth.value = savedEnemy.stats.health; // update enemy UI health
 
-  // enemy attacks back only if still alive
+  // player attacks enemy first, so we update enemy health before allowing enemy to attack back
+  const updatedEnemyHealth = enemyHealth.value - playerAttack;
+  savedEnemy.stats.health = Math.max(0, updatedEnemyHealth); // prevent negative health
+  enemyHealth.value = savedEnemy.stats.health; // update enemy UI health bar
+
+  // Only allow enemy to attack back if they are still alive after the player's attack
   if (savedEnemy.stats.health > 0) {
-    const updatedPlayerHealth = playerHealth.value - enemyAttack; 
-    savedCharacter.stats.health = Math.max(0, updatedPlayerHealth); 
-    playerHealth.value = savedCharacter.stats.health; 
+
+    // enemy attacks back, so we update player health
+    const updatedPlayerHealth = playerHealth.value - enemyAttack;
+    savedCharacter.stats.health = Math.max(0, updatedPlayerHealth);
+    playerHealth.value = savedCharacter.stats.health;
   }
 
-  // allow health bars to update before checking for victory/defeat conditions
+
+  // save updated character and enemy back to localStorage
+  localStorage.setItem('selectedCharacter', JSON.stringify(savedCharacter));
+  localStorage.setItem('enemy', JSON.stringify(savedEnemy));
+
+  // check for win/loss/draw conditions after a short delay to allow health bars to update
   setTimeout(() => {
     const gameStatus = document.querySelector('.game-status');
 
     if (enemyHealth.value === 0 && playerHealth.value > 0) {
       gameStatus.textContent = "Victory! You won!";
-      attackBtn.disabled = true; 
+      attackBtn.disabled = true;
     }
     else if (playerHealth.value === 0 && enemyHealth.value > 0) {
       gameStatus.textContent = "Defeat! You lost!";
-      attackBtn.disabled = true; 
+      attackBtn.disabled = true;
     }
     else if (playerHealth.value === 0 && enemyHealth.value === 0) {
       gameStatus.textContent = "It's a draw!";
       attackBtn.disabled = true;
     }
-  }, 200); 
+
+  }, 200);
+
 });
