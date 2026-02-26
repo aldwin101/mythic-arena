@@ -1,3 +1,10 @@
+// Function to clear match data from localStorage
+function clearMatchData() {
+  localStorage.removeItem('selectedCharacter');
+  localStorage.removeItem('enemy');
+  localStorage.removeItem('gameStatus');
+}
+
 //event listener for arena page
 document.addEventListener('DOMContentLoaded', async () => {
   const savedSelectedCharacter = JSON.parse(
@@ -67,8 +74,7 @@ if (!savedSelectedCharacter.stats.maxHealth) {
 // clear localStorage when "End Match" button is clicked
 const endMatchBtn = document.querySelector('.end-match-btn');
 endMatchBtn.addEventListener('click', () => {
-  localStorage.removeItem('selectedCharacter');
-  localStorage.removeItem('enemy');
+  clearMatchData();
 });
 
 // attack button event listener
@@ -120,17 +126,25 @@ attackBtn.addEventListener('click', () => {
 
     if (enemyHealth.value === 0 && playerHealth.value > 0) {
       gameStatus.textContent = "Victory! You won!";
+      localStorage.setItem('battleResult', gameStatus.textContent);
       attackBtn.disabled = true;
     }
     else if (playerHealth.value === 0 && enemyHealth.value > 0) {
       gameStatus.textContent = "Defeat! You lost!";
+      localStorage.setItem('battleResult', gameStatus.textContent);
       attackBtn.disabled = true;
     }
     else if (playerHealth.value === 0 && enemyHealth.value === 0) {
       gameStatus.textContent = "It's a draw!";
+      localStorage.setItem('battleResult', gameStatus.textContent);
       attackBtn.disabled = true;
     }
-
   }, 200);
 
 });
+
+const savedBattleResult = localStorage.getItem('battleResult');
+if (savedBattleResult) {
+  const gameStatus = document.querySelector('.game-status');
+  gameStatus.textContent = savedBattleResult;
+}
