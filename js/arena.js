@@ -144,7 +144,18 @@ attackBtn.addEventListener('click', () => {
 });
 
 const savedBattleResult = localStorage.getItem('battleResult');
+
 if (savedBattleResult) {
-  const gameStatus = document.querySelector('.game-status');
-  gameStatus.textContent = savedBattleResult;
+  const savedSelectedCharacter = JSON.parse(localStorage.getItem('selectedCharacter'));
+  const savedEnemy = JSON.parse(localStorage.getItem('enemy'));
+
+  const playerHealth = savedSelectedCharacter.stats.health;
+  const enemyHealth = savedEnemy.stats.health;
+
+  // Only show result if someone is dead
+  if (playerHealth === 0 || enemyHealth === 0) {
+    const gameStatus = document.querySelector('.game-status');
+    gameStatus.textContent = savedBattleResult;
+    gameStatus.style.display = 'block'; // make sure it's visible
+  }
 }
